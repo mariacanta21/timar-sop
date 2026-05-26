@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP - Post Contract Steps | Timar Buyers Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #F5F5F5;
+    color: #1A1A1A;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 860px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+  .header {
+    background: #1c3148;
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-logo {
+    height: 36px;
+    filter: brightness(0) invert(1);
+  }
+  .header-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,.25);
+  }
+  .header-text {
+    color: #fff;
+  }
+  .header-text .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 2px;
+  }
+  .header-text h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .meta-bar {
+    background: #304C61;
+    padding: 12px 48px;
+    display: flex;
+    gap: 40px;
+  }
+  .meta-bar span {
+    font-size: 12px;
+    color: rgba(255,255,255,.7);
+    font-weight: 500;
+    letter-spacing: .05em;
+  }
+  .meta-bar strong {
+    color: #fff;
+  }
+  .body {
+    padding: 48px;
+  }
+
+  /* Resource table */
+  .resource-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  .resource-table th {
+    background: #304C61;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+  }
+  .resource-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #E8E8E8;
+    vertical-align: top;
+  }
+  .resource-table tr:last-child td {
+    border-bottom: none;
+  }
+  .resource-table tr:nth-child(even) td {
+    background: #F9F9F9;
+  }
+
+  /* Goal / Importance boxes */
+  .callout {
+    border-left: 4px solid #304C61;
+    background: #F0F3F5;
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .callout h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #304C61;
+    margin-bottom: 8px;
+  }
+  .callout p {
+    color: #304C61;
+    font-size: 14.5px;
+  }
+
+  /* Section headings */
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1c3148;
+    margin: 40px 0 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #304C61;
+  }
+  h2:first-of-type {
+    margin-top: 0;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #304C61;
+    margin: 28px 0 10px;
+  }
+  p {
+    margin-bottom: 14px;
+    color: #1A1A1A;
+  }
+
+  /* Step numbers */
+  .step {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: #304C61;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-content h3 {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #1c3148;
+  }
+
+  /* Lists */
+  ul {
+    padding-left: 20px;
+    margin-bottom: 14px;
+  }
+  ul li {
+    margin-bottom: 6px;
+    color: #1A1A1A;
+  }
+  ul li ul {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+  ul li ul li {
+    color: #304C61;
+    font-size: 14px;
+  }
+
+  /* Inline highlight */
+  .bold-term {
+    font-weight: 700;
+    color: #1c3148;
+  }
+  .tip {
+    background: #FFF8EC;
+    border: 1px solid #E8D9B5;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: #5a4520;
+    margin: 10px 0 16px;
+  }
+  .tip::before {
+    content: "TIP: ";
+    font-weight: 700;
+  }
+
+  /* Checklist summary */
+  .checklist {
+    list-style: none;
+    padding: 0;
+  }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px solid #E8E8E8;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #304C61;
+    border-radius: 3px;
+  }
+
+  .footer {
+    background: #1c3148;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer span {
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+  }
+
+  .loom-section { margin-bottom: 40px; }
+  .loom-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: #304C61; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .loom-embed {
+    position: relative; padding-bottom: 56.25%; height: 0;
+    border-radius: 6px; overflow: hidden;
+    border: 1px solid #E8E8E8; box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  }
+  .loom-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <img class="header-logo" src="../Primary-Dark-Blue.webp" alt="Timar Buyers Agency">
+    <div class="header-divider"></div>
+    <div class="header-text">
+      <div class="label">Standard Operating Procedure</div>
+      <h1>Post Contract Steps</h1>
+    </div>
+  </div>
+
+  <div class="meta-bar">
+    <span><strong>Person Responsible:</strong> David / Ben</span>
+    <span><strong>Version:</strong> 1.0</span>
+    <span><strong>Date:</strong> 24 May 2026</span>
+  </div>
+
+  <div class="body">
+
+    <!-- Loom Walkthrough -->
+    <div class="loom-section">
+      <div class="loom-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        Video Walkthrough
+      </div>
+      <div class="loom-embed">
+        <iframe src="https://www.loom.com/embed/d90535a638cc4b1ca0b7313a4f0f10b8" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Resource Section -->
+    <h2>Resource Section</h2>
+    <table class="resource-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Link / Location</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Congratulations Email Template</td>
+          <td>Drafts / Templates (Gmail)</td>
+          <td>Template: "Congratulations your offer has been accepted"</td>
+        </tr>
+        <tr>
+          <td>Building Inspection Request Template</td>
+          <td>Drafts / Templates (Gmail)</td>
+          <td>Template for contacting building inspector</td>
+        </tr>
+        <tr>
+          <td>PropVault</td>
+          <td>PropVault login</td>
+          <td>Log contract details and track conditions</td>
+        </tr>
+        <tr>
+          <td>WayHub (GoHighLevel)</td>
+          <td>WayHub login</td>
+          <td>Find buyer email addresses via Fact Finder form</td>
+        </tr>
+        <tr>
+          <td>Loom Video Walkthrough</td>
+          <td>LINK</td>
+          <td>Screen recording of full post-contract process</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Goal Statement -->
+    <div class="callout">
+      <h3>Goal Statement</h3>
+      <p>The purpose of this SOP is to guide the designated team member (David or Ben) through the steps that must be completed immediately after a contract of sale is signed by the buyer. It covers sending the congratulations email, working out key dates, arranging a building inspection, confirming the deposit, and updating PropVault. This ensures every client receives consistent, professional communication and that all legal and contractual obligations are tracked from day one of the settlement process.</p>
+    </div>
+
+    <!-- Importance -->
+    <div class="callout">
+      <h3>Importance</h3>
+      <p>The period immediately following contract signing is time-critical. Deposits have strict due dates (typically 3 business days), building inspections must be booked within clause timeframes (often 7 days), and finance approval must be tracked to the unconditional date. Errors or delays at this stage can expose the client to risk or breach of contract. A consistent, templated process ensures nothing is missed and the client feels fully informed and supported throughout settlement.</p>
+    </div>
+
+    <!-- Process -->
+    <h2>Post Contract Steps Process</h2>
+    <p>These steps are completed as soon as the contract of sale is fully executed (signed by both parties). Complete all steps on the same day where possible. Steps 1-3 are the priority.</p>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Get a Copy of the Signed Contract</h3>
+        <ul>
+          <li>Obtain the fully executed contract from the selling agent as soon as it is signed by both parties.</li>
+          <li>Download and save a copy to the client's Google Drive folder.</li>
+          <li>Open the contract and keep it accessible — you will refer to it throughout the following steps.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Calculate Key Dates</h3>
+        <p>Before drafting any emails, work out the key dates directly from the contract. You will need these in the congratulations email.</p>
+        <ul>
+          <li><span class="bold-term">Contract date:</span> The date both parties signed.</li>
+          <li><span class="bold-term">Unconditional date:</span> Count forward from the contract date by the longest special clause period. Check the contract for:
+            <ul>
+              <li>Finance clause period (e.g., 21 days)</li>
+              <li>Building inspection clause period (e.g., 7 days)</li>
+              <li>Use whichever is longer. If finance is 21 days and building is 7 days, unconditional date = contract date + 21 days.</li>
+            </ul>
+          </li>
+          <li><span class="bold-term">Settlement date:</span> Refer to the completion clause at the bottom of the contract. Typically: unconditional date + 30 days.</li>
+          <li><span class="bold-term">Deposit due date:</span> Typically 3 business days from the contract date. Use a calendar and skip weekends and public holidays.
+            <ul>
+              <li>Example: Contract signed Friday 21 May. Day 1 = Friday 22 May. Day 2 = Monday 25 May. Day 3 = Tuesday 26 May.</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="tip">Use your phone or computer calendar to count forward accurately. Do not guess or calculate mentally.</div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Send the Congratulations Email to the Client</h3>
+        <ul>
+          <li>Go to Drafts / Templates in Gmail and open the <strong>"Congratulations your offer has been accepted"</strong> template.</li>
+          <li>Copy the template into a new email. Do not reply from within the template.</li>
+          <li>Update all client-specific details:</li>
+        </ul>
+
+        <h3>Email Heading</h3>
+        <ul>
+          <li>Use the same heading format: <strong>Congratulations. You're off to [street address].</strong></li>
+          <li>Double-check spelling of the property address carefully.</li>
+          <li>Include a link to the property listing.</li>
+        </ul>
+
+        <h3>Agreement Terms Summary (in the email body)</h3>
+        <ul>
+          <li><span class="bold-term">Purchase price:</span> Confirm from the contract (e.g., $700,000). Bold this in the email.</li>
+          <li><span class="bold-term">Deposit:</span> Amount and payee (e.g., "$10,000 payable to [Selling Agency] Trust Account").</li>
+          <li><span class="bold-term">Unconditional date:</span> Date calculated in Step 2. Bold this.</li>
+          <li><span class="bold-term">Settlement date:</span> Date calculated in Step 2. Bold this.</li>
+        </ul>
+
+        <h3>Special Conditions Section</h3>
+        <ul>
+          <li><span class="bold-term">Finance clause:</span> [X] days from contract date, signed [date]. Bold and list as a dot point.</li>
+          <li><span class="bold-term">Building inspection:</span> [X] days from contract date, signed [date]. Bold and list as a dot point.</li>
+        </ul>
+
+        <h3>Deposit Payment Instructions</h3>
+        <ul>
+          <li>Find the trust account details on the contract (deposit holder name, BSP number, account number).</li>
+          <li>Look up the selling agency's phone number online. Prefer a landline number. Include it so the client can independently verify the account before transferring funds.</li>
+          <li><div class="tip">This adds a layer of security and builds client trust. Always verify the trust account details match the agency listed on the contract.</div></li>
+          <li>Include the deposit due date (calculated in Step 2).</li>
+        </ul>
+
+        <h3>Legal / Solicitor</h3>
+        <ul>
+          <li>CC your solicitor (e.g., Jack) on the congratulations email.</li>
+          <li>The email should note: <em>"We have issued contract instructions and conditions to [solicitor name] via this email."</em></li>
+          <li>Instruct the client to also forward the contract to their broker or lender.</li>
+        </ul>
+
+        <h3>Recipients</h3>
+        <ul>
+          <li>Address to ALL buyers — not just the primary contact. If you do not have all email addresses, check WayHub (search client name, open their record, go to Fact Finder form to find the secondary buyer's email).</li>
+          <li>CC: solicitor, buyers' agent (David or Ben).</li>
+        </ul>
+
+        <h3>Attachments</h3>
+        <ul>
+          <li>Attach the fully executed contract of sale.</li>
+        </ul>
+
+        <h3>Formatting Check</h3>
+        <ul>
+          <li>After copying and pasting content from the contract or other sources, check that all text is the same font size and colour (black). Copy-paste often brings in different formatting.</li>
+          <li>Ensure bolding is applied consistently to all key figures (price, dates, deposit amount).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Send WhatsApp Message to Client</h3>
+        <ul>
+          <li>In addition to the email, send a congratulatory WhatsApp message to the client.</li>
+          <li>Keep it warm and brief. A simple congratulations and confirmation that the detailed email has been sent is sufficient.</li>
+          <li>Include a congratulations emoji if appropriate to the client relationship.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Send Building Inspection Request</h3>
+        <ul>
+          <li>Go to Drafts / Templates in Gmail and open the building inspection request template.</li>
+          <li>Copy into a new email and update all details.</li>
+        </ul>
+
+        <h3>Email Content</h3>
+        <ul>
+          <li>Address to the building inspector.</li>
+          <li>Include the property address and a link to the listing (so the inspector can view the property online before attending).</li>
+          <li>State the client names (all buyers).</li>
+          <li>State the building clause timeframe: e.g., <em>"We are working with a 7-day building inspection clause signed on [contract date]."</em></li>
+          <li>State the defect limit: e.g., <em>"The contract includes a 2% defect limit at a purchase price of $[amount]."</em></li>
+          <li>State the selling agent name, agency, and phone number (for access coordination).</li>
+        </ul>
+
+        <h3>Recipients</h3>
+        <ul>
+          <li>To: building inspector.</li>
+          <li>CC: all buyers, buyers' agent (David or Ben). Optionally CC the selling agent.</li>
+        </ul>
+
+        <div class="tip">Send this on the same day as the congratulations email. The building inspection clause is typically only 7 days — there is no time to delay.</div>
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h3>Update PropVault</h3>
+        <ul>
+          <li>Enter the property and contract details into PropVault.</li>
+          <li>Log the key dates: contract date, unconditional date, settlement date, deposit due date, building inspection deadline.</li>
+          <li>Set up tracking for:
+            <ul>
+              <li>Finance approval (due by unconditional date)</li>
+              <li>Building inspection report (due within building clause period)</li>
+              <li>Deposit confirmation</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <h3>Confirm Deposit Received</h3>
+        <ul>
+          <li>Once the selling agent sends the deposit receipt, reply to their email:</li>
+          <li><em>"Thanks [agent name]. Please see the receipt attached."</em> — attach the receipt.</li>
+          <li>Update PropVault to mark the deposit as confirmed.</li>
+          <li>If the selling agent has not provided trust account details, contact them by email or text to request deposit payment details before the due date.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 8 -->
+    <div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <h3>Track Conditions Through to Unconditional</h3>
+        <ul>
+          <li>Monitor finance approval — follow up with client or broker if not received before the deadline.</li>
+          <li>Monitor building inspection report — follow up with inspector if not received before the clause deadline.</li>
+          <li>Keep the client updated as key milestones are reached.</li>
+          <li>Your solicitor and buyers' agent will guide the client from contract signing, through unconditional status, and through to settlement.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Checklist summary -->
+    <h2>Quick Reference Checklist</h2>
+    <p>Use this as a same-day checklist after every contract is signed.</p>
+    <ul class="checklist">
+      <li><div class="check-box"></div> Get a copy of the signed contract</li>
+      <li><div class="check-box"></div> Calculate unconditional date, settlement date, and deposit due date</li>
+      <li><div class="check-box"></div> Send congratulations email (CC solicitor, all buyers, buyers' agent)</li>
+      <li><div class="check-box"></div> Include deposit trust account details and due date in email</li>
+      <li><div class="check-box"></div> Attach fully executed contract to email</li>
+      <li><div class="check-box"></div> Send WhatsApp message to client</li>
+      <li><div class="check-box"></div> Send building inspection request email (same day)</li>
+      <li><div class="check-box"></div> Enter details in PropVault and set condition tracking</li>
+      <li><div class="check-box"></div> Confirm deposit received — send receipt to selling agent</li>
+      <li><div class="check-box"></div> Track finance approval and building report to unconditional date</li>
+    </ul>
+
+  </div><!-- /body -->
+
+  <div class="footer">
+    <span>Timar Buyers Agency &mdash; Internal SOP</span>
+    <span>Post Contract Steps v1.0 &mdash; 24 May 2026</span>
+  </div>
+
+</div>
+</body>
+</html>

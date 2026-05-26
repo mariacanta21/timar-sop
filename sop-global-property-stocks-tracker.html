@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP - Global Property Stocks Tracker | Timar Buyers Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #F5F5F5;
+    color: #1A1A1A;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 860px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+  .header {
+    background: #1c3148;
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-logo {
+    height: 36px;
+    filter: brightness(0) invert(1);
+  }
+  .header-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,.25);
+  }
+  .header-text {
+    color: #fff;
+  }
+  .header-text .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 2px;
+  }
+  .header-text h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .meta-bar {
+    background: #304C61;
+    padding: 12px 48px;
+    display: flex;
+    gap: 40px;
+  }
+  .meta-bar span {
+    font-size: 12px;
+    color: rgba(255,255,255,.7);
+    font-weight: 500;
+    letter-spacing: .05em;
+  }
+  .meta-bar strong {
+    color: #fff;
+  }
+  .body {
+    padding: 48px;
+  }
+
+  /* Resource table */
+  .resource-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  .resource-table th {
+    background: #304C61;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+  }
+  .resource-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #E8E8E8;
+    vertical-align: top;
+  }
+  .resource-table tr:last-child td {
+    border-bottom: none;
+  }
+  .resource-table tr:nth-child(even) td {
+    background: #F9F9F9;
+  }
+
+  /* Goal / Importance boxes */
+  .callout {
+    border-left: 4px solid #304C61;
+    background: #F0F3F5;
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .callout h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #304C61;
+    margin-bottom: 8px;
+  }
+  .callout p {
+    color: #304C61;
+    font-size: 14.5px;
+  }
+
+  /* Section headings */
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1c3148;
+    margin: 40px 0 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #304C61;
+  }
+  h2:first-of-type {
+    margin-top: 0;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #304C61;
+    margin: 28px 0 10px;
+  }
+  p {
+    margin-bottom: 14px;
+    color: #1A1A1A;
+  }
+
+  /* Step numbers */
+  .step {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: #304C61;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-content h3 {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #1c3148;
+  }
+
+  /* Lists */
+  ul {
+    padding-left: 20px;
+    margin-bottom: 14px;
+  }
+  ul li {
+    margin-bottom: 6px;
+    color: #1A1A1A;
+  }
+  ul li ul {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+  ul li ul li {
+    color: #304C61;
+    font-size: 14px;
+  }
+
+  .bold-term {
+    font-weight: 700;
+    color: #1c3148;
+  }
+  .tip {
+    background: #FFF8EC;
+    border: 1px solid #E8D9B5;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: #5a4520;
+    margin: 10px 0 16px;
+  }
+  .tip::before {
+    content: "TIP: ";
+    font-weight: 700;
+  }
+
+  /* Stock reference table */
+  .stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .stock-table th {
+    background: #304C61;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+  }
+  .stock-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #E8E8E8;
+    vertical-align: middle;
+  }
+  .stock-table tr:last-child td {
+    border-bottom: none;
+  }
+  .stock-table tr:nth-child(even) td {
+    background: #F9F9F9;
+  }
+  .ticker {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    background: #1c3148;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 13px;
+    display: inline-block;
+  }
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .badge-au { background: #dff0ea; color: #1a7a50; }
+  .badge-uk { background: #dde8f5; color: #1a4080; }
+  .badge-us { background: #fdeee0; color: #b04a10; }
+
+  /* Checklist */
+  .checklist {
+    list-style: none;
+    padding: 0;
+  }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px solid #E8E8E8;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #304C61;
+    border-radius: 3px;
+  }
+
+  .footer {
+    background: #1c3148;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer span {
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+  }
+
+  .loom-section { margin-bottom: 40px; }
+  .loom-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: #304C61; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .loom-embed {
+    position: relative; padding-bottom: 56.25%; height: 0;
+    border-radius: 6px; overflow: hidden;
+    border: 1px solid #E8E8E8; box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  }
+  .loom-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <img class="header-logo" src="Primary-Dark-Blue.webp" alt="Timar Buyers Agency">
+    <div class="header-divider"></div>
+    <div class="header-text">
+      <div class="label">Standard Operating Procedure</div>
+      <h1>Global Property Stocks Tracker</h1>
+    </div>
+  </div>
+
+  <div class="meta-bar">
+    <span><strong>Person Responsible:</strong> David</span>
+    <span><strong>Version:</strong> 1.0</span>
+    <span><strong>Date:</strong> 26 May 2026</span>
+    <span><strong>Frequency:</strong> Monthly</span>
+  </div>
+
+  <div class="body">
+
+    <!-- Loom Walkthrough -->
+    <div class="loom-section">
+      <div class="loom-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        Video Walkthrough
+      </div>
+      <div class="loom-embed">
+        <iframe src="https://www.loom.com/embed/a9f174bbae6549fc8da30c821ae5976a" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Resource Section -->
+    <h2>Resource Section</h2>
+    <table class="resource-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Link / Location</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Yahoo Finance</td>
+          <td>finance.yahoo.com</td>
+          <td>Platform used to build and view the comparison chart</td>
+        </tr>
+        <tr>
+          <td>Stock List</td>
+          <td>See Stock Reference Table below</td>
+          <td>Ticker codes for AU, UK, and US property stocks</td>
+        </tr>
+        <tr>
+          <td>Monthly Catch-Up Notes</td>
+          <td>Google Drive / shared folder</td>
+          <td>Paste the chart share link here each month</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Goal Statement -->
+    <div class="callout">
+      <h3>Goal Statement</h3>
+      <p>The purpose of this SOP is to guide David through building and updating a single comparison chart on Yahoo Finance that tracks the top global property stocks across Australia, UK, and the US. This chart is reviewed monthly to monitor the direction of real estate stocks worldwide, helping identify the top of the land cycle and inform when to adjust property strategy for clients.</p>
+    </div>
+
+    <!-- Importance -->
+    <div class="callout">
+      <h3>Importance</h3>
+      <p>Global REIT and property stock performance is a leading indicator of where the broader land cycle is heading. By combining AU, UK, and US stocks onto one chart, patterns emerge that are invisible when looking at individual markets. Completing this review monthly - and sharing the link at catch-ups - keeps the whole team aligned on macro property market direction and supports better timing advice for clients buying, selling, or holding.</p>
+    </div>
+
+    <!-- Stock Reference -->
+    <h2>Stock Reference Table</h2>
+    <p>Use these ticker codes to build the comparison chart. Add all stocks from the list each month. If the full list has been updated, use the most current version.</p>
+
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Stock Name</th>
+          <th>Ticker</th>
+          <th>Market</th>
+          <th>Sector</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Charter Hall Group</td>
+          <td><span class="ticker">CHC</span></td>
+          <td><span class="badge badge-au">AU - ASX</span></td>
+          <td>Diversified REIT</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>National Storage REIT</td>
+          <td><span class="ticker">NSR</span></td>
+          <td><span class="badge badge-au">AU - ASX</span></td>
+          <td>Storage REIT</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>AEW UK REIT</td>
+          <td><span class="ticker">AEWU</span></td>
+          <td><span class="badge badge-uk">UK - LSE</span></td>
+          <td>Diversified REIT</td>
+        </tr>
+        <tr>
+          <td colspan="5" style="color:#72818B; font-style:italic; font-size:13px;">Add additional stocks from the full list as provided</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Process -->
+    <h2>Step-by-Step Process</h2>
+    <p>Complete all steps in one sitting. The full process takes 10-15 minutes. Do this on the first business day of each month.</p>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Open Yahoo Finance</h3>
+        <ul>
+          <li>Navigate to <strong>finance.yahoo.com</strong> in your browser.</li>
+          <li>In the search bar at the top, type the first ticker code: <strong>CHC</strong></li>
+          <li>Select <strong>Charter Hall Group</strong> from the dropdown results (ASX listing).</li>
+        </ul>
+        <div class="tip">If multiple results appear, look for the one labelled ASX for Australian stocks, LSE for UK stocks, and NYSE or NASDAQ for US stocks.</div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Set Up the Chart View</h3>
+        <ul>
+          <li>On the stock page, click the chart area to open it in full screen.</li>
+          <li>Set the following three options on the chart toolbar:</li>
+        </ul>
+        <ul>
+          <li><span class="bold-term">Time period:</span> 1 Year</li>
+          <li><span class="bold-term">Chart type:</span> Area</li>
+          <li><span class="bold-term">Interval:</span> 1 Day</li>
+        </ul>
+        <p>This gives you a clean 12-month view of the stock's performance that is easy to compare across all stocks.</p>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Add All Comparison Stocks</h3>
+        <ul>
+          <li>Click the <strong>Comparison</strong> button on the chart.</li>
+          <li>Type the next ticker code from the stock list (e.g. <strong>NSR</strong>) and select the correct result.</li>
+          <li>Choose the following settings for each new stock:
+            <ul>
+              <li>Line style: <strong>Medium fat line</strong></li>
+              <li>Colour: <strong>A different colour for every stock</strong> - do not repeat colours</li>
+            </ul>
+          </li>
+          <li>Click <strong>Save</strong> after adding each stock.</li>
+          <li>Repeat for every stock in the reference table above.</li>
+        </ul>
+        <div class="tip">Keep a note of which colour you assigned to each stock. Use the same colour for the same stock every month so the chart is consistent and easy to read at catch-ups.</div>
+        <h3>Suggested Colour Assignments</h3>
+        <ul>
+          <li>CHC - Blue</li>
+          <li>NSR - Purple</li>
+          <li>AEWU - Green</li>
+          <li>Additional stocks - Red, Orange, Teal (in order)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Review the Chart</h3>
+        <p>Before sharing, spend 2-3 minutes reviewing the chart and noting observations. Look for:</p>
+        <ul>
+          <li>Which stocks are trending up, flat, or down</li>
+          <li>Any stocks hitting new highs or approaching 12-month lows</li>
+          <li>Whether AU, UK, and US stocks are moving together or diverging</li>
+          <li>Any signs of a broad peak - multiple stocks reversing after highs simultaneously</li>
+          <li>Signs of recovery - stocks bouncing from lows and trending upward consistently</li>
+        </ul>
+        <div class="tip">A rapid rise from a 12-month low across multiple markets (e.g. CHC moving from $8 to $12) signals an entry window. Stocks hitting all-time highs and reversing together signals a potential market top.</div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Share the Chart</h3>
+        <ul>
+          <li>Once all stocks are added and the chart is complete, click the <strong>Share</strong> button on the chart toolbar.</li>
+          <li>Click <strong>Copy link</strong>.</li>
+          <li>Paste the link into the monthly catch-up notes or shared Google Drive folder.</li>
+          <li>Share the link with the team at the monthly market review.</li>
+        </ul>
+        <div class="tip">The share link opens the live chart for anyone who clicks it - they do not need a Yahoo Finance account. Always use the share button rather than copying the URL from the browser address bar, as the address bar URL may not preserve all chart settings.</div>
+      </div>
+    </div>
+
+    <!-- Checklist -->
+    <h2>Quick Reference Checklist</h2>
+    <p>Use this as a monthly checklist each time you complete the tracker update.</p>
+    <ul class="checklist">
+      <li><div class="check-box"></div> Opened Yahoo Finance and searched first ticker (CHC)</li>
+      <li><div class="check-box"></div> Set chart to 1 Year / Area / 1 Day</li>
+      <li><div class="check-box"></div> Added all comparison stocks using correct ticker codes</li>
+      <li><div class="check-box"></div> Assigned a different colour to each stock</li>
+      <li><div class="check-box"></div> Clicked Save after each stock was added</li>
+      <li><div class="check-box"></div> Reviewed chart for trends, peaks, and divergence</li>
+      <li><div class="check-box"></div> Noted key observations for catch-up discussion</li>
+      <li><div class="check-box"></div> Clicked Share button and copied the chart link</li>
+      <li><div class="check-box"></div> Pasted link into monthly catch-up notes or shared folder</li>
+    </ul>
+
+  </div>
+
+  <div class="footer">
+    <span>Timar Buyers Agency - Internal SOP</span>
+    <span>Global Property Stocks Tracker v1.0 - 26 May 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
