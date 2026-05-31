@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP - Blog Creation Workflow | Timar Buyers Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #F5F5F5;
+    color: #1A1A1A;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 860px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+  .header {
+    background: #1c3148;
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-logo {
+    height: 36px;
+    filter: brightness(0) invert(1);
+  }
+  .header-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,.25);
+  }
+  .header-text { color: #fff; }
+  .header-text .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 2px;
+  }
+  .header-text h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .meta-bar {
+    background: #304C61;
+    padding: 12px 48px;
+    display: flex;
+    gap: 40px;
+  }
+  .meta-bar span {
+    font-size: 12px;
+    color: rgba(255,255,255,.7);
+    font-weight: 500;
+    letter-spacing: .05em;
+  }
+  .meta-bar strong { color: #fff; }
+  .body { padding: 48px; }
+
+  .resource-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  .resource-table th {
+    background: #304C61;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+  }
+  .resource-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #E8E8E8;
+    vertical-align: top;
+  }
+  .resource-table tr:last-child td { border-bottom: none; }
+  .resource-table tr:nth-child(even) td { background: #F9F9F9; }
+
+  .callout {
+    border-left: 4px solid #304C61;
+    background: #F0F3F5;
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .callout h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #304C61;
+    margin-bottom: 8px;
+  }
+  .callout p { color: #304C61; font-size: 14.5px; }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1c3148;
+    margin: 40px 0 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #304C61;
+  }
+  h2:first-of-type { margin-top: 0; }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #304C61;
+    margin: 28px 0 10px;
+  }
+  p { margin-bottom: 14px; color: #1A1A1A; }
+
+  .step {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: #304C61;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-content h3 {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #1c3148;
+  }
+  .step-content h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #304C61;
+    margin: 18px 0 8px;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 14px;
+  }
+  ul li {
+    margin-bottom: 6px;
+    color: #1A1A1A;
+  }
+
+  .tip {
+    background: #FFF8EC;
+    border: 1px solid #E8D9B5;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: #5a4520;
+    margin: 10px 0 16px;
+  }
+  .tip::before {
+    content: "TIP: ";
+    font-weight: 700;
+  }
+
+  .pipeline {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 24px 0 32px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #E8E8E8;
+  }
+  .pipeline-stage {
+    flex: 1;
+    padding: 16px 14px;
+    text-align: center;
+    border-right: 1px solid #E8E8E8;
+    background: #fff;
+  }
+  .pipeline-stage:last-child { border-right: none; }
+  .pipeline-stage .who {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #304C61;
+    margin-bottom: 6px;
+  }
+  .pipeline-stage .action {
+    font-size: 13px;
+    color: #1A1A1A;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .pipeline-stage.highlight { background: #304C61; }
+  .pipeline-stage.highlight .who { color: rgba(255,255,255,.7); }
+  .pipeline-stage.highlight .action { color: #fff; }
+
+  .blog-types {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .blog-type {
+    background: #F5F5F5;
+    border: 1px solid #E8E8E8;
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+  .blog-type h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1c3148;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+  .blog-type p {
+    font-size: 13px;
+    color: #72818B;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .code-example {
+    background: #1A1A1A;
+    color: #a8d8a8;
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 12px 0 16px;
+    overflow-x: auto;
+  }
+
+  .footer {
+    background: #1c3148;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer span {
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <img class="header-logo" src="website/Primary-Dark-Blue.webp" alt="Timar Buyers Agency">
+    <div class="header-divider"></div>
+    <div class="header-text">
+      <div class="label">Standard Operating Procedure</div>
+      <h1>Blog Creation Workflow</h1>
+    </div>
+  </div>
+
+  <div class="meta-bar">
+    <span><strong>Person Responsible:</strong> David</span>
+    <span><strong>Version:</strong> 1.0</span>
+    <span><strong>Date:</strong> May 2026</span>
+  </div>
+
+  <div class="body">
+
+    <div class="callout">
+      <h3>Overview</h3>
+      <p>This SOP covers how a Timar blog post goes from idea to live on the website. The process is designed so David records a voice memo, Claude writes the full article and blog HTML, and David does one upload to GitHub. Netlify publishes it automatically in 30 seconds. No developer needed.</p>
+    </div>
+
+    <h2>Resource Section</h2>
+    <table class="resource-table">
+      <thead>
+        <tr>
+          <th>Tool / Resource</th>
+          <th>Where</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Whisperflow</td>
+          <td>whisperflow.app (free)</td>
+          <td>Voice memo recording and transcription</td>
+        </tr>
+        <tr>
+          <td>Claude</td>
+          <td>claude.ai</td>
+          <td>Writes the blog HTML using your transcript</td>
+        </tr>
+        <tr>
+          <td>GitHub Repository</td>
+          <td>github.com - timar-website repo</td>
+          <td>Where all website files live</td>
+        </tr>
+        <tr>
+          <td>Netlify</td>
+          <td>netlify.com</td>
+          <td>Auto-publishes to timar.com.au within 30 seconds of a GitHub upload</td>
+        </tr>
+        <tr>
+          <td>blog.html</td>
+          <td>timar-website GitHub repo</td>
+          <td>The blog index page - Claude updates this too when a new post is created</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The Full Pipeline</h2>
+
+    <div class="pipeline">
+      <div class="pipeline-stage">
+        <div class="who">David</div>
+        <div class="action">Records Whisperflow memo</div>
+      </div>
+      <div class="pipeline-stage highlight">
+        <div class="who">Claude</div>
+        <div class="action">Writes blog HTML + updates blog index</div>
+      </div>
+      <div class="pipeline-stage">
+        <div class="who">David</div>
+        <div class="action">Uploads 2 files to GitHub</div>
+      </div>
+      <div class="pipeline-stage">
+        <div class="who">Netlify</div>
+        <div class="action">Auto-publishes in 30 sec</div>
+      </div>
+    </div>
+
+    <h2>Types of Blog Posts</h2>
+    <p>All blogs follow the Content Gain principle - they must contain information not found elsewhere. There are two main types:</p>
+
+    <div class="blog-types">
+      <div class="blog-type">
+        <h4>Suburb Profiles</h4>
+        <p>Is Sandy Bay a good suburb? Kingston property market. West Hobart investment guide. Targets people researching where to buy - often shows up in ChatGPT answers.</p>
+      </div>
+      <div class="blog-type">
+        <h4>Market Commentary</h4>
+        <p>Negative gearing changes explained. Winter market update. Budget impact on investors. Targets people in decision mode - converts well to leads.</p>
+      </div>
+    </div>
+
+    <p>Both types use the same process. The only difference is the trigger - suburb blogs start with a Whisperflow memo, market commentary blogs can start from a recording or a conversation (like the Fathom call transcript).</p>
+
+    <h2>Step-by-Step Process</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Record Your Memo (David)</h3>
+        <p>Open Whisperflow and record 60-90 seconds of intel on the topic. For suburb blogs, follow the Suburb Content Memos SOP. For market commentary, speak freely about the topic - your interpretation, your take, what you're seeing on the ground.</p>
+        <div class="tip">Even a rough 60-second recording is enough. Don't script it - authenticity is the point. Claude handles the structure and writing.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Send the Transcript to Claude (David)</h3>
+        <p>Copy the Whisperflow transcript and paste it into a Claude conversation. Use this prompt:</p>
+        <div class="code-example">Write a blog post for Timar Buyers Agency about [Sandy Bay / negative gearing / topic] using this memo: [paste transcript]</div>
+        <p>Claude will:</p>
+        <ul>
+          <li>Write a full 600-900 word article in David's voice</li>
+          <li>Format it as a complete HTML file matching the Timar website style</li>
+          <li>Create an SEO-optimised title and meta description</li>
+          <li>Include a clear call to action at the end</li>
+          <li>Also update blog.html to add the new post card to the blog index</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Review the Draft (David)</h3>
+        <p>Read through the blog quickly. Check:</p>
+        <ul>
+          <li>The intel from your memo is accurately represented</li>
+          <li>The tone sounds like you (direct, professional, not salesy)</li>
+          <li>No figures or facts have been invented - only what you provided</li>
+        </ul>
+        <p>If anything needs changing, tell Claude and it will fix it. Once happy, download both HTML files Claude provides.</p>
+        <div class="tip">Claude will give you two files: the new blog post (e.g. blog-sandy-bay-suburb-profile.html) and the updated blog.html. You need both.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Upload to GitHub (David)</h3>
+        <p>Go to github.com and open the timar-website repository.</p>
+        <h4>To upload the new blog file:</h4>
+        <ul>
+          <li>Click "Add file" then "Upload files"</li>
+          <li>Drag in the new blog HTML file (e.g. blog-sandy-bay-suburb-profile.html)</li>
+          <li>Click "Commit changes"</li>
+        </ul>
+        <h4>To update blog.html:</h4>
+        <ul>
+          <li>Click on blog.html in the repository</li>
+          <li>Click the pencil (Edit) icon</li>
+          <li>Select all, delete, paste in the updated blog.html content Claude gave you</li>
+          <li>Click "Commit changes"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Netlify Publishes Automatically</h3>
+        <p>Netlify detects the GitHub change and redeploys within 30 seconds. The new blog post is live at timar.com.au/blog-sandy-bay-suburb-profile and the blog index page is updated.</p>
+        <p>No further action needed. The page is indexed by Google automatically once live.</p>
+      </div>
+    </div>
+
+    <h2>Content Standards</h2>
+    <p>Every blog must meet these standards before publishing:</p>
+    <ul>
+      <li><strong>No invented figures</strong> - only use data David has provided or that is publicly available</li>
+      <li><strong>New information</strong> - at least one piece of intel not easily found on other websites (this is what drives Content Gain ranking)</li>
+      <li><strong>David's voice</strong> - direct, professional, no hype or cliches</li>
+      <li><strong>Clear CTA</strong> - every post ends with an invitation to book a call or get in touch</li>
+      <li><strong>No em dashes</strong> - use hyphens or colons instead</li>
+      <li><strong>Both agents</strong> - where relevant, reference the Timar team (David and Ben), not just David</li>
+    </ul>
+
+    <h2>Blog Naming Convention</h2>
+    <p>File names must be consistent for clean URLs on the website:</p>
+    <ul>
+      <li>Suburb profiles: <strong>blog-[suburb]-[state]-suburb-profile.html</strong> (e.g. blog-sandy-bay-tasmania-suburb-profile.html)</li>
+      <li>Market commentary: <strong>blog-[topic-slug].html</strong> (e.g. blog-negative-gearing-changes-2026.html)</li>
+      <li>All lowercase, hyphens between words, no spaces or special characters</li>
+    </ul>
+
+    <div class="callout">
+      <h3>Target Cadence</h3>
+      <p>Aim for 2 new blog posts per week. At this pace, Timar builds a library of 100+ suburb and market articles within 12 months - each one a permanent lead-generating asset on the website and in AI search results.</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>Timar Buyers Agency - Internal SOP</span>
+    <span>Version 1.0 - May 2026</span>
+  </div>
+
+</div>
+</body>
+</html>

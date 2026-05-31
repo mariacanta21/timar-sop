@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP Library | Timar Buyers Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --midnight: #1A1A1A;
+    --denim: #304C61;
+    --denim-light: #3d607a;
+    --slate: #72818B;
+    --stone: #D0D0D0;
+    --bg: #F5F5F5;
+    --white: #ffffff;
+    --red: #C0392B;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--bg);
+    color: var(--midnight);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── NAV ─────────────────────────────────────────────────── */
+  nav {
+    background: var(--midnight);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  nav img {
+    height: 28px;
+    filter: brightness(0) invert(1);
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(255,255,255,.2);
+  }
+
+  .nav-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,.9);
+    letter-spacing: .04em;
+  }
+
+  .nav-badge {
+    background: rgba(255,255,255,.1);
+    color: rgba(255,255,255,.5);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ────────────────────────────────────────────────── */
+  .hero {
+    background: var(--denim);
+    padding: 48px 48px 0;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .hero p {
+    font-size: 14px;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 28px;
+  }
+
+  /* Search */
+  .search-wrap {
+    position: relative;
+    max-width: 520px;
+    margin-bottom: -20px;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--slate);
+    pointer-events: none;
+  }
+
+  #search {
+    width: 100%;
+    padding: 14px 16px 14px 44px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.15);
+    outline: none;
+    color: var(--midnight);
+    background: var(--white);
+  }
+
+  #search::placeholder { color: var(--slate); }
+  #search:focus { box-shadow: 0 4px 20px rgba(0,0,0,.25), 0 0 0 2px rgba(48,76,97,.3); }
+
+  .search-clear {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--slate);
+    display: none;
+    padding: 4px;
+    line-height: 1;
+  }
+
+  /* ── MAIN ────────────────────────────────────────────────── */
+  main {
+    flex: 1;
+    padding: 44px 48px 64px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Filter tabs */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .filter-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--slate);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+
+  .filter-tab {
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--stone);
+    background: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--slate);
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+
+  .filter-tab:hover {
+    border-color: var(--denim);
+    color: var(--denim);
+  }
+
+  .filter-tab.active {
+    background: var(--denim);
+    border-color: var(--denim);
+    color: var(--white);
+  }
+
+  .filter-tab .count {
+    display: inline-block;
+    background: rgba(255,255,255,.25);
+    border-radius: 10px;
+    padding: 0 6px;
+    font-size: 11px;
+    margin-left: 5px;
+  }
+
+  .filter-tab:not(.active) .count {
+    background: var(--bg);
+    color: var(--slate);
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 28px;
+    align-items: center;
+  }
+
+  .stats-row .stat {
+    font-size: 13px;
+    color: var(--slate);
+  }
+
+  .stats-row .stat strong {
+    color: var(--denim);
+    font-weight: 700;
+  }
+
+  .results-label {
+    font-size: 13px;
+    color: var(--slate);
+    margin-left: auto;
+  }
+
+  /* ── GROUP SECTIONS ──────────────────────────────────────── */
+  .group-section {
+    margin-bottom: 44px;
+  }
+
+  .group-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .group-heading h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--denim);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .group-line {
+    flex: 1;
+    height: 1px;
+    background: var(--stone);
+  }
+
+  .group-count {
+    font-size: 12px;
+    color: var(--slate);
+    font-weight: 500;
+  }
+
+  /* ── CARDS ───────────────────────────────────────────────── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .sop-card {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 6px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: box-shadow .15s, transform .15s;
+    cursor: default;
+  }
+
+  .sop-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    transform: translateY(-2px);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .group-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .card-meta {
+    font-size: 11px;
+    color: var(--slate);
+    white-space: nowrap;
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--midnight);
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    gap: 8px;
+    padding-top: 4px;
+    border-top: 1px solid var(--stone);
+    align-items: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 3px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    letter-spacing: .03em;
+    transition: background .15s;
+  }
+
+  .btn-primary {
+    background: var(--denim);
+    color: var(--white);
+  }
+
+  .btn-primary:hover { background: var(--denim-light); }
+
+  .btn-secondary {
+    background: var(--bg);
+    color: var(--denim);
+    border: 1.5px solid var(--stone);
+  }
+
+  .btn-secondary:hover { background: #eaeaea; }
+
+  .btn-disabled {
+    background: var(--bg);
+    color: var(--stone);
+    border: 1.5px solid #e0e0e0;
+    cursor: not-allowed;
+    opacity: .7;
+  }
+
+  /* Highlight search matches */
+  mark {
+    background: rgba(48,76,97,.12);
+    color: var(--denim);
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--slate);
+    display: none;
+  }
+
+  .empty-state svg { margin-bottom: 16px; opacity: .4; }
+  .empty-state h3 { font-size: 17px; color: var(--midnight); margin-bottom: 6px; }
+  .empty-state p { font-size: 14px; }
+
+  /* ── GROUP COLORS ────────────────────────────────────────── */
+  .group-client-onboarding { background: #E8F5E9; color: #2E7D32; }
+  .group-contracts-settlement { background: #E3F2FD; color: #1565C0; }
+  .group-market-research { background: #FFF3E0; color: #E65100; }
+  .group-business-development { background: #E8EAF6; color: #283593; }
+  .group-operations { background: #F3E5F5; color: #6A1B9A; }
+  .group-marketing { background: #FCE4EC; color: #880E4F; }
+
+  /* ── FOOTER ──────────────────────────────────────────────── */
+  footer {
+    background: var(--midnight);
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  footer span {
+    font-size: 12px;
+    color: rgba(255,255,255,.35);
+  }
+
+  footer strong { color: rgba(255,255,255,.6); }
+
+  /* No display */
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <img src="website/Primary-Dark-Blue.webp" alt="Timar">
+    <div class="nav-divider"></div>
+    <span class="nav-title">SOP Library</span>
+  </div>
+  <span class="nav-badge">Internal Use Only</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Standard Operating Procedures</h1>
+  <p>Search and browse all Timar procedures by category</p>
+  <div class="search-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" id="search" placeholder="Search SOPs by title, keyword, or category..." autocomplete="off">
+    <button class="search-clear" id="clearBtn" onclick="clearSearch()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- Filter tabs -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-tab active" data-group="all">All <span class="count" id="count-all">6</span></button>
+    <button class="filter-tab" data-group="Client Onboarding">Client Onboarding <span class="count" id="count-client-onboarding">1</span></button>
+    <button class="filter-tab" data-group="Contracts &amp; Settlement">Contracts &amp; Settlement <span class="count" id="count-contracts-settlement">1</span></button>
+    <button class="filter-tab" data-group="Business Development">Business Development <span class="count" id="count-business-development">1</span></button>
+    <button class="filter-tab" data-group="Market Research">Market Research <span class="count" id="count-market-research">1</span></button>
+    <button class="filter-tab" data-group="Marketing">Marketing <span class="count" id="count-marketing">2</span></button>
+  </div>
+
+  <!-- Stats row -->
+  <div class="stats-row">
+    <div class="stat"><strong id="total-count">4</strong> SOPs total</div>
+    <div class="stat"><strong>4</strong> categories</div>
+    <div class="stat">Last updated <strong>26 May 2026</strong></div>
+    <div class="results-label" id="results-label"></div>
+  </div>
+
+  <!-- SOP content rendered by JS -->
+  <div id="sop-content"></div>
+
+  <!-- Empty state -->
+  <div class="empty-state" id="empty-state">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <h3>No SOPs found</h3>
+    <p>Try a different search term or clear the filter.</p>
+  </div>
+
+</main>
+
+<footer>
+  <span><strong>Timar Buyers Agency</strong> - Internal SOP Library</span>
+  <span>For internal use only - not for distribution</span>
+</footer>
+
+<script>
+// ── SOP DATA ──────────────────────────────────────────────────────────────────
+// To add a new SOP, copy one of the objects below and fill in the details.
+// group options: 'Client Onboarding' | 'Contracts & Settlement' | 'Market Research' | 'Operations' | 'Marketing'
+const SOPS = [
+  {
+    id: 'during-onboarding-session',
+    title: 'During Onboarding Session',
+    group: 'Client Onboarding',
+    description: 'Steps to follow during a new client onboarding session to ensure a consistent, professional first experience.',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-during-onboarding-session.html',
+    docx: 'sop-during-onboarding-session.docx',
+    loom: null,
+    tags: ['onboarding', 'client', 'session', 'first meeting'],
+  },
+  {
+    id: 'post-contract-steps',
+    title: 'Post Contract Steps',
+    group: 'Contracts & Settlement',
+    description: 'Actions to complete immediately after a contract of sale is signed: congratulations email, key dates calculation, building inspection request, PropVault update, and deposit confirmation.',
+    version: '1.0',
+    date: '24 May 2026',
+    html: 'sop-post-contract-steps.html',
+    docx: 'sop-post-contract-steps.docx',
+    loom: 'https://www.loom.com/share/d90535a638cc4b1ca0b7313a4f0f10b8',
+    tags: ['contract', 'settlement', 'deposit', 'building inspection', 'propvault', 'congratulations', 'email', 'dates', 'unconditional'],
+  },
+  {
+    id: 'linkedin-broker-outreach',
+    title: 'LinkedIn Broker Outreach',
+    group: 'Business Development',
+    description: 'Weekly process for sending 5 personalised LinkedIn connection requests to mortgage brokers and financial advisors in Tasmania, following up on acceptances, and booking referral partner meetings for David.',
+    version: '1.0',
+    date: '26 May 2026',
+    html: 'sop-linkedin-broker-outreach.html',
+    docx: 'sop-linkedin-broker-outreach.docx',
+    loom: 'https://www.loom.com/share/15dcb47102034f32929b59bb9e4a8ba2',
+    tags: ['linkedin', 'outreach', 'mortgage broker', 'financial advisor', 'referral', 'partnership', 'sales navigator', 'connection request', 'business development'],
+  },
+  {
+    id: 'global-property-stocks-tracker',
+    title: 'Global Property Stocks Tracker',
+    group: 'Market Research',
+    description: 'Monthly process for combining top AU, UK, and US property stocks onto one Yahoo Finance chart to monitor global REIT performance and identify the top of the land cycle.',
+    version: '1.0',
+    date: '26 May 2026',
+    html: 'sop-global-property-stocks-tracker.html',
+    docx: 'sop-global-property-stocks-tracker.docx',
+    loom: 'https://www.loom.com/share/a9f174bbae6549fc8da30c821ae5976a',
+    tags: ['stocks', 'yahoo finance', 'land cycle', 'REIT', 'market research', 'monthly', 'CHC', 'NSR', 'AEWU', 'property stocks'],
+  },
+  {
+    id: 'suburb-content-memos',
+    title: 'Suburb Content Memos (Content Gain)',
+    group: 'Marketing',
+    description: 'How to record 60-second Whisperflow voice memos for each Tasmanian suburb - new intel that feeds both blog articles and Cloudflare suburb profile pages. Targets low-competition searches on Google and AI tools like ChatGPT.',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-suburb-content-memos.html',
+    docx: null,
+    loom: null,
+    tags: ['whisperflow', 'suburb', 'voice memo', 'content gain', 'SEO', 'blog', 'ChatGPT', 'suburb profile', 'Sandy Bay', 'Kingston', 'Google'],
+  },
+  {
+    id: 'blog-creation-workflow',
+    title: 'Blog Creation Workflow',
+    group: 'Marketing',
+    description: 'Full pipeline for publishing a Timar blog post: David records a memo, Claude writes the HTML, David uploads two files to GitHub, Netlify publishes automatically in 30 seconds. Covers suburb profiles and market commentary.',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-blog-creation-workflow.html',
+    docx: null,
+    loom: null,
+    tags: ['blog', 'content', 'GitHub', 'Netlify', 'Claude', 'suburb profile', 'market commentary', 'SEO', 'content gain', 'publish', 'website'],
+  },
+];
+
+// ── GROUP CONFIG ──────────────────────────────────────────────────────────────
+const GROUP_COLORS = {
+  'Client Onboarding':       'group-client-onboarding',
+  'Contracts & Settlement':  'group-contracts-settlement',
+  'Market Research':         'group-market-research',
+  'Business Development':    'group-business-development',
+  'Operations':              'group-operations',
+  'Marketing':               'group-marketing',
+};
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let currentGroup = 'all';
+let currentQuery = '';
+
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+document.getElementById('search').addEventListener('input', function () {
+  currentQuery = this.value.trim().toLowerCase();
+  document.getElementById('clearBtn').style.display = currentQuery ? 'block' : 'none';
+  render();
+});
+
+function clearSearch() {
+  document.getElementById('search').value = '';
+  currentQuery = '';
+  document.getElementById('clearBtn').style.display = 'none';
+  render();
+}
+
+// ── FILTER TABS ───────────────────────────────────────────────────────────────
+document.querySelectorAll('.filter-tab').forEach(btn => {
+  btn.addEventListener('click', function () {
+    currentGroup = this.dataset.group;
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    render();
+  });
+});
+
+// ── HIGHLIGHT ─────────────────────────────────────────────────────────────────
+function highlight(text, query) {
+  if (!query) return text;
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+}
+
+// ── MATCH ─────────────────────────────────────────────────────────────────────
+function matches(sop, query) {
+  if (!query) return true;
+  const haystack = [sop.title, sop.group, sop.description, ...sop.tags].join(' ').toLowerCase();
+  return haystack.includes(query);
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function render() {
+  const container = document.getElementById('sop-content');
+  const emptyState = document.getElementById('empty-state');
+  const resultsLabel = document.getElementById('results-label');
+
+  // Filter
+  let filtered = SOPS.filter(sop => {
+    const groupOk = currentGroup === 'all' || sop.group === currentGroup;
+    const queryOk = matches(sop, currentQuery);
+    return groupOk && queryOk;
+  });
+
+  // Update results label
+  if (currentQuery) {
+    resultsLabel.textContent = `${filtered.length} result${filtered.length !== 1 ? 's' : ''} for "${currentQuery}"`;
+  } else {
+    resultsLabel.textContent = '';
+  }
+
+  // Empty state
+  if (filtered.length === 0) {
+    container.innerHTML = '';
+    emptyState.style.display = 'block';
+    return;
+  }
+  emptyState.style.display = 'none';
+
+  // Group the filtered SOPs
+  const groups = {};
+  filtered.forEach(sop => {
+    if (!groups[sop.group]) groups[sop.group] = [];
+    groups[sop.group].push(sop);
+  });
+
+  // When a single group is selected and no search, skip group headings
+  const showHeadings = currentGroup === 'all' || currentQuery;
+
+  let html = '';
+  for (const [group, sops] of Object.entries(groups)) {
+    if (showHeadings) {
+      html += `
+        <div class="group-section">
+          <div class="group-heading">
+            <h2>${group}</h2>
+            <div class="group-line"></div>
+            <span class="group-count">${sops.length} SOP${sops.length !== 1 ? 's' : ''}</span>
+          </div>
+          <div class="cards-grid">
+            ${sops.map(sop => cardHTML(sop)).join('')}
+          </div>
+        </div>`;
+    } else {
+      html += `<div class="cards-grid">${sops.map(sop => cardHTML(sop)).join('')}</div>`;
+    }
+  }
+
+  container.innerHTML = html;
+}
+
+function cardHTML(sop) {
+  const badgeClass = GROUP_COLORS[sop.group] || 'group-operations';
+  const title = highlight(sop.title, currentQuery);
+  const desc = highlight(sop.description, currentQuery);
+
+  const viewBtn = sop.html
+    ? `<a href="${sop.html}" target="_blank" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        View SOP
+      </a>`
+    : `<span class="btn btn-disabled">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        HTML N/A
+      </span>`;
+
+  const docxBtn = sop.docx
+    ? `<a href="${sop.docx}" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        DOCX
+      </a>`
+    : '';
+
+  const loomBtn = sop.loom
+    ? `<a href="${sop.loom}" target="_blank" class="btn btn-secondary" style="margin-left:auto;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        Watch Video
+      </a>`
+    : '';
+
+  return `
+    <div class="sop-card">
+      <div class="card-top">
+        <span class="group-badge ${badgeClass}">${sop.group}</span>
+        <span class="card-meta">v${sop.version} &middot; ${sop.date}</span>
+      </div>
+      <div class="card-title">${title}</div>
+      <div class="card-desc">${desc}</div>
+      <div class="card-footer">
+        ${viewBtn}
+        ${docxBtn}
+        ${loomBtn}
+      </div>
+    </div>`;
+}
+
+// ── UPDATE TAB COUNTS ─────────────────────────────────────────────────────────
+function updateCounts() {
+  const allCount = SOPS.length;
+  document.getElementById('count-all').textContent = allCount;
+  document.getElementById('total-count').textContent = allCount;
+
+  const groupMap = {
+    'client-onboarding': 'Client Onboarding',
+    'contracts-settlement': 'Contracts & Settlement',
+    'business-development': 'Business Development',
+    'market-research': 'Market Research',
+  };
+  for (const [key, group] of Object.entries(groupMap)) {
+    const el = document.getElementById(`count-${key}`);
+    if (el) el.textContent = SOPS.filter(s => s.group === group).length;
+  }
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+updateCounts();
+render();
+</script>
+</body>
+</html>

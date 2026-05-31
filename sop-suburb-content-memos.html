@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP - Suburb Content Memos | Timar Buyers Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #F5F5F5;
+    color: #1A1A1A;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 860px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+  .header {
+    background: #1c3148;
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-logo {
+    height: 36px;
+    filter: brightness(0) invert(1);
+  }
+  .header-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,.25);
+  }
+  .header-text { color: #fff; }
+  .header-text .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 2px;
+  }
+  .header-text h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .meta-bar {
+    background: #304C61;
+    padding: 12px 48px;
+    display: flex;
+    gap: 40px;
+  }
+  .meta-bar span {
+    font-size: 12px;
+    color: rgba(255,255,255,.7);
+    font-weight: 500;
+    letter-spacing: .05em;
+  }
+  .meta-bar strong { color: #fff; }
+  .body { padding: 48px; }
+
+  .resource-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  .resource-table th {
+    background: #304C61;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+  }
+  .resource-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #E8E8E8;
+    vertical-align: top;
+  }
+  .resource-table tr:last-child td { border-bottom: none; }
+  .resource-table tr:nth-child(even) td { background: #F9F9F9; }
+
+  .callout {
+    border-left: 4px solid #304C61;
+    background: #F0F3F5;
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .callout h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #304C61;
+    margin-bottom: 8px;
+  }
+  .callout p { color: #304C61; font-size: 14.5px; }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1c3148;
+    margin: 40px 0 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #304C61;
+  }
+  h2:first-of-type { margin-top: 0; }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #304C61;
+    margin: 28px 0 10px;
+  }
+  p { margin-bottom: 14px; color: #1A1A1A; }
+
+  .step {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: #304C61;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-content h3 {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #1c3148;
+  }
+  .step-content h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #304C61;
+    margin: 18px 0 8px;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 14px;
+  }
+  ul li {
+    margin-bottom: 6px;
+    color: #1A1A1A;
+  }
+  ul li ul {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+  ul li ul li {
+    color: #304C61;
+    font-size: 14px;
+  }
+
+  .tip {
+    background: #FFF8EC;
+    border: 1px solid #E8D9B5;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: #5a4520;
+    margin: 10px 0 16px;
+  }
+  .tip::before {
+    content: "TIP: ";
+    font-weight: 700;
+  }
+
+  .suburb-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .suburb-item {
+    background: #F5F5F5;
+    border: 1px solid #E8E8E8;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .suburb-num {
+    width: 22px;
+    height: 22px;
+    background: #304C61;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .script-box {
+    background: #F0F3F5;
+    border: 1px solid #D0D8E0;
+    border-radius: 4px;
+    padding: 16px 20px;
+    font-size: 14px;
+    font-style: italic;
+    color: #304C61;
+    margin: 12px 0 16px;
+    line-height: 1.75;
+  }
+
+  .footer {
+    background: #1c3148;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer span {
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <img class="header-logo" src="website/Primary-Dark-Blue.webp" alt="Timar Buyers Agency">
+    <div class="header-divider"></div>
+    <div class="header-text">
+      <div class="label">Standard Operating Procedure</div>
+      <h1>Suburb Content Memos (Content Gain)</h1>
+    </div>
+  </div>
+
+  <div class="meta-bar">
+    <span><strong>Person Responsible:</strong> David / Ben</span>
+    <span><strong>Version:</strong> 1.0</span>
+    <span><strong>Date:</strong> May 2026</span>
+  </div>
+
+  <div class="body">
+
+    <div class="callout">
+      <h3>Why This Exists</h3>
+      <p>Google now has a ranking signal called <strong>Content Gain</strong> - it can detect recycled AI content and deprioritises it. To rank suburb profile articles (especially in AI tools like ChatGPT and Gemini), each blog must contain genuinely new information that doesn't exist on other websites. Your on-the-ground knowledge as a buyers agent is the competitive edge. This SOP captures it efficiently.</p>
+    </div>
+
+    <h2>Resource Section</h2>
+    <table class="resource-table">
+      <thead>
+        <tr>
+          <th>Tool / Resource</th>
+          <th>Where to Find It</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Whisperflow App</td>
+          <td>whisperflow.app (free)</td>
+          <td>Voice-to-text dictation tool - speaks and transcribes in real time</td>
+        </tr>
+        <tr>
+          <td>Suburb List</td>
+          <td>This SOP (see below)</td>
+          <td>Top 10 priority suburbs - work through in order</td>
+        </tr>
+        <tr>
+          <td>Blog Creation SOP</td>
+          <td>sop-blog-creation-workflow.html</td>
+          <td>What happens after you send the memo</td>
+        </tr>
+        <tr>
+          <td>Dean Gravina</td>
+          <td>resultsmedia.au</td>
+          <td>Receives completed memos - builds Cloudflare suburb pages</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Priority Suburb List</h2>
+    <p>Work through these in order. One memo per suburb. Once all 10 are done, repeat the cycle with updated intel.</p>
+
+    <div class="suburb-grid">
+      <div class="suburb-item"><div class="suburb-num">1</div>Sandy Bay</div>
+      <div class="suburb-item"><div class="suburb-num">2</div>Kingston</div>
+      <div class="suburb-item"><div class="suburb-num">3</div>West Hobart</div>
+      <div class="suburb-item"><div class="suburb-num">4</div>South Hobart</div>
+      <div class="suburb-item"><div class="suburb-num">5</div>Moonah</div>
+      <div class="suburb-item"><div class="suburb-num">6</div>Claremont</div>
+      <div class="suburb-item"><div class="suburb-num">7</div>Glenorchy</div>
+      <div class="suburb-item"><div class="suburb-num">8</div>Tolmans Hill</div>
+      <div class="suburb-item"><div class="suburb-num">9</div>New Norfolk</div>
+      <div class="suburb-item"><div class="suburb-num">10</div>Richmond</div>
+    </div>
+
+    <p><strong>Add or swap suburbs</strong> based on where buyer enquiries are coming from. Update this list and notify Dean.</p>
+
+    <h2>Step-by-Step Process</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Pick the Next Suburb</h3>
+        <p>Work through the priority list in order. Tick off each suburb once the memo is sent. Aim for 2-3 memos per week - even one per week adds up quickly.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Open Whisperflow and Record 60 Seconds</h3>
+        <p>Open the Whisperflow app on your phone or computer. Hit record and speak naturally for around 60 seconds. No script needed - just talk about the suburb the way you would to a client.</p>
+        <p><strong>The goal is new information that isn't on other websites.</strong> Cover as many of these as you can in your 60 seconds:</p>
+        <ul>
+          <li>What's changing in this suburb right now (new development, road works, rezoning)</li>
+          <li>What types of buyers are currently active there and why</li>
+          <li>What's happening with rents - up, down, tight vacancy</li>
+          <li>Any streets or pockets within the suburb worth noting</li>
+          <li>Infrastructure coming or recently completed</li>
+          <li>Your honest take - is it a good buy right now and for who</li>
+        </ul>
+        <div class="script-box">
+          Example: "Sandy Bay is really active right now for owner occupiers coming from Sydney and Melbourne. The streets closest to the water are holding value well. Vacancy is extremely tight - I'm seeing rentals go in 48 hours. There's a new cafe precinct opening on the main strip in the next few months which is bringing more foot traffic. For investors I think Sandy Bay still makes sense for long-term holders but the yield is low - it's a capital growth play. Avoid the main road properties, the traffic noise is a complaint I hear regularly from buyers."
+        </div>
+        <div class="tip">Don't overthink it. Raw, honest, current intel is exactly what Google is looking for. A 60-second rough take from you is more valuable than a perfectly written 1,000-word AI article.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Copy the Transcript</h3>
+        <p>Whisperflow automatically transcribes what you said. Copy the full transcript text - you don't need to edit or clean it up.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Send to Two Places</h3>
+        <h4>Dean (for Cloudflare suburb pages):</h4>
+        <p>Paste the transcript into WhatsApp or email. Label it clearly - e.g. "Sandy Bay memo." Dean will build the suburb profile page from it.</p>
+        <h4>Claude (for blog article):</h4>
+        <p>Paste the transcript into a Claude conversation and say: "Write the Sandy Bay suburb blog using this memo." Claude will produce a finished HTML blog file ready to upload. See the Blog Creation Workflow SOP for the full process.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Tick It Off and Move to the Next Suburb</h3>
+        <p>Mark the suburb as done. Move to the next one on the list. Once all 10 are complete, start the cycle again - the intel will be different by then and the refresh is just as valuable.</p>
+      </div>
+    </div>
+
+    <h2>What Happens After</h2>
+    <p>Once your memo is sent:</p>
+    <ul>
+      <li><strong>Dean</strong> builds a low-competition suburb profile page via Cloudflare - targeting searches like "Is Sandy Bay a good suburb?" on Google and AI tools like ChatGPT</li>
+      <li><strong>Claude</strong> writes a full blog article from your transcript and provides the HTML file ready to add to the website</li>
+      <li>Both pieces are published - they cross-reference each other and build Timar's authority as the go-to source for Tasmanian suburb knowledge</li>
+    </ul>
+
+    <div class="callout">
+      <h3>Why Low-Competition Suburb Keywords Work</h3>
+      <p>Searches like "Is Sandy Bay safe?" or "Kingston suburb profile Tasmania" have very low competition - most buyers agents aren't writing about them. That means your articles rank quickly and appear in AI-generated answers on ChatGPT and Gemini. This is how leads come in saying "I found you on ChatGPT."</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>Timar Buyers Agency - Internal SOP</span>
+    <span>Version 1.0 - May 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
