@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP - During Onboarding Session | Timar Buyers Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #F5F5F5;
+    color: #1A1A1A;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 860px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+  .header {
+    background: #1c3148;
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-logo {
+    height: 36px;
+    filter: brightness(0) invert(1);
+  }
+  .header-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,.25);
+  }
+  .header-text { color: #fff; }
+  .header-text .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 2px;
+  }
+  .header-text h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .meta-bar {
+    background: #304C61;
+    padding: 12px 48px;
+    display: flex;
+    gap: 40px;
+  }
+  .meta-bar span {
+    font-size: 12px;
+    color: rgba(255,255,255,.7);
+    font-weight: 500;
+    letter-spacing: .05em;
+  }
+  .meta-bar strong { color: #fff; }
+  .body { padding: 48px; }
+
+  /* Resource table */
+  .resource-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  .resource-table th {
+    background: #304C61;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+  }
+  .resource-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #E8E8E8;
+    vertical-align: top;
+  }
+  .resource-table tr:last-child td { border-bottom: none; }
+  .resource-table tr:nth-child(even) td { background: #F9F9F9; }
+
+  /* Callouts */
+  .callout {
+    border-left: 4px solid #304C61;
+    background: #F0F3F5;
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .callout h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #304C61;
+    margin-bottom: 8px;
+  }
+  .callout p {
+    color: #304C61;
+    font-size: 14.5px;
+  }
+
+  /* Section headings */
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1c3148;
+    margin: 40px 0 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #304C61;
+  }
+  h2:first-of-type { margin-top: 0; }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #304C61;
+    margin: 28px 0 10px;
+  }
+  p { margin-bottom: 14px; color: #1A1A1A; }
+
+  /* Steps */
+  .step {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: #304C61;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-content h3 {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #1c3148;
+  }
+  .step-content h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #304C61;
+    margin: 18px 0 8px;
+  }
+
+  /* Lists */
+  ul {
+    padding-left: 20px;
+    margin-bottom: 14px;
+  }
+  ul li {
+    margin-bottom: 6px;
+    color: #1A1A1A;
+  }
+  ul li ul {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+  ul li ul li {
+    color: #304C61;
+    font-size: 14px;
+  }
+
+  .bold-term {
+    font-weight: 700;
+    color: #1c3148;
+  }
+  .tip {
+    background: #FFF8EC;
+    border: 1px solid #E8D9B5;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: #5a4520;
+    margin: 10px 0 16px;
+  }
+  .tip::before {
+    content: "TIP: ";
+    font-weight: 700;
+  }
+  .quote {
+    background: #F0F3F5;
+    border-left: 3px solid #304C61;
+    border-radius: 0 4px 4px 0;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: #304C61;
+    font-style: italic;
+    margin: 8px 0 14px;
+  }
+
+  /* Checklist */
+  .checklist {
+    list-style: none;
+    padding: 0;
+  }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px solid #E8E8E8;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #304C61;
+    border-radius: 3px;
+  }
+
+  .footer {
+    background: #1c3148;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer span {
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <img class="header-logo" src="Primary-Dark-Blue.webp" alt="Timar Buyers Agency">
+    <div class="header-divider"></div>
+    <div class="header-text">
+      <div class="label">Standard Operating Procedure</div>
+      <h1>During Onboarding Session</h1>
+    </div>
+  </div>
+
+  <div class="meta-bar">
+    <span><strong>Person Responsible:</strong> David / Ben</span>
+    <span><strong>Version:</strong> 1.0</span>
+    <span><strong>Date:</strong> May 2026</span>
+  </div>
+
+  <div class="body">
+
+    <!-- Resource Section -->
+    <h2>Resource Section</h2>
+    <table class="resource-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Link / Location</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Client Agreement</td>
+          <td>Client's Google Drive folder</td>
+          <td>Signed agreement - review before session</td>
+        </tr>
+        <tr>
+          <td>Fact Finder</td>
+          <td>WayHub - Client opportunity record</td>
+          <td>Completed client questionnaire</td>
+        </tr>
+        <tr>
+          <td>Buyer's Brief Template</td>
+          <td>Google Drive - Templates</td>
+          <td>Draft and bring to session for client review</td>
+        </tr>
+        <tr>
+          <td>Client Trello Board</td>
+          <td>Trello - Client workspace</td>
+          <td>Checklist and communication schedule cards</td>
+        </tr>
+        <tr>
+          <td>WayHub (GoHighLevel)</td>
+          <td>WayHub login</td>
+          <td>Log session notes and update lead status</td>
+        </tr>
+        <tr>
+          <td>Loom Video Walkthrough</td>
+          <td>Coming soon</td>
+          <td>Screen recording of full onboarding session process</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Goal Statement -->
+    <div class="callout">
+      <h3>Goal Statement</h3>
+      <p>The purpose of this SOP is to guide the designated team member (David or Ben) through the process of conducting an effective Onboarding Session with a new client. It outlines the key objectives for the session, essential topics to cover (reviewing briefs, setting communication expectations, and outlining the search strategy), and how to transition into the active property search phase. This ensures every onboarding session is comprehensive, builds client confidence, and seamlessly moves them into the next stage of working with us.</p>
+    </div>
+
+    <!-- Importance -->
+    <div class="callout">
+      <h3>Importance</h3>
+      <p>The Onboarding Session marks the official commencement of our client relationship and the active property search. A well-conducted session is fundamental for setting clear expectations, confirming all client requirements, establishing communication protocols, and formally kicking off the buyer's journey. It ensures that both the client and our team are fully aligned, equipped with all necessary information, and ready to proceed efficiently - which is vital for a smooth process and successful outcome.</p>
+    </div>
+
+    <!-- Process -->
+    <h2>Onboarding Session Process</h2>
+    <p>The Onboarding Session is the formal kick-off to the client's property search with us. It typically occurs after the client agreement is signed and the initial invoice is paid.</p>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Session Preparation (Before the Call)</h3>
+        <ul>
+          <li><span class="bold-term">Review Client Documents:</span> Thoroughly review the client's signed Client Agreement, their completed Fact Finder, and all notes from the Pre-Qualification and Strategy Sessions.</li>
+          <li><span class="bold-term">Access Client Folder and Trello:</span> Have the client's Google Drive folder and Trello checklist open and ready for reference and updates during the call.</li>
+          <li><span class="bold-term">Prepare Buyer's Brief:</span> Ensure the initial Buyer's Brief (summary of client requirements) is drafted and ready for review with the client.</li>
+          <li><span class="bold-term">Confirm Logistics:</span> Ensure the Zoom link is working if virtual, or the meeting room is prepared if in-office.</li>
+        </ul>
+        <div class="tip">Do not start the session without reviewing the Fact Finder first. Clients expect you to remember their requirements - arriving unprepared damages trust immediately.</div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Open the Session</h3>
+        <h4>Warm Welcome</h4>
+        <div class="quote">"Hi [Client Name/s], welcome! It's fantastic to officially have you on board. Congratulations on taking this exciting step!"</div>
+        <div class="quote">"Thanks for completing the agreement and getting the initial invoice processed. We're truly excited to work with you."</div>
+        <h4>Confirm the Agenda</h4>
+        <div class="quote">"As per the email, today we'll be diving into your detailed brief, setting up our communication rhythm, and outlining exactly how we'll find your ideal property. Does that sound good?"</div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Review the Buyer's Brief</h3>
+        <p>Present the drafted Buyer's Brief to the client and work through it together.</p>
+        <div class="quote">"We've put together an initial brief based on our previous discussions and your Fact Finder. Let's go through it together to ensure we've captured every detail accurately and that it perfectly reflects what you're looking for."</div>
+        <p>Discuss and confirm each of the following:</p>
+        <ul>
+          <li><span class="bold-term">Property Type and Features:</span> Bedrooms, bathrooms, land size, garage, condition (move-in ready vs. renovation potential), key features such as natural light, kitchen style, outdoor space.</li>
+          <li><span class="bold-term">Location and Suburbs:</span> Target suburbs, desired proximity to amenities (schools, transport, shops), and any areas to avoid.</li>
+          <li><span class="bold-term">Budget and Financing:</span> Reconfirm the exact budget and finance pre-approval status.</li>
+          <li><span class="bold-term">Timeline:</span> Confirm the preferred purchase timeline and any key drivers (e.g., school start date, end of lease).</li>
+          <li><span class="bold-term">Purpose:</span> Owner-occupier, investment, or commercial.</li>
+          <li><span class="bold-term">Non-Negotiables vs. Nice-to-Haves:</span> Clarify absolute must-haves versus features the client is flexible on.</li>
+        </ul>
+        <p>Make any necessary adjustments to the brief during the session and confirm the final version before moving on.</p>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Set Communication Expectations</h3>
+        <div class="quote">"To ensure we keep you fully informed, let's discuss how and when we'll communicate."</div>
+        <ul>
+          <li><span class="bold-term">Primary Communication Channel:</span> Confirm preferred method - phone, email, or WhatsApp.</li>
+          <li><span class="bold-term">Frequency of Updates:</span> Agree on update cadence (e.g., weekly summary, or as-soon-as-a-property-arises).</li>
+          <li><span class="bold-term">Reporting:</span> Explain how property presentations will be delivered (e.g., Google Sheet, detailed reports).</li>
+          <li><span class="bold-term">Response Times:</span> Outline expected response times for client queries.</li>
+          <li><span class="bold-term">Availability:</span> Confirm best times for calls and discussions.</li>
+        </ul>
+        <div class="tip">Set clear expectations here to prevent over-communication or under-communication complaints later. Clients who feel out of the loop are the hardest to manage.</div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Outline the Search Strategy</h3>
+        <div class="quote">"Now that we're aligned on the brief, let's walk through how we'll actively find your property."</div>
+        <ul>
+          <li><span class="bold-term">Off-Market and Pre-Market Access:</span> Reiterate strong agent relationships and how properties are accessed before they hit the general market. Emphasise this as a key advantage in the Tasmanian/Hobart market.</li>
+          <li><span class="bold-term">Active Sourcing:</span> Explain the process of calling agents, researching upcoming listings, and tapping into the network.</li>
+          <li><span class="bold-term">Property Presentation:</span> Describe how suitable properties will be presented (e.g., detailed reports including photos, floor plans, and initial assessment).</li>
+          <li><span class="bold-term">Inspections:</span> Explain how inspections will be managed - initial inspections are conducted first and the client is only brought to properties that meet their specific brief.</li>
+          <li><span class="bold-term">Due Diligence and Negotiation:</span> Briefly reiterate the role in due diligence (building, pest, legal) and expert negotiation on the client's behalf.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h3>Answer Client Questions</h3>
+        <p>Dedicate ample time for the client to ask any questions about the process, the market, or the service.</p>
+        <div class="quote">"Do you have any questions at this stage about our process, the search, or anything else?"</div>
+        <p>Do not rush this section. Questions here prevent misunderstandings and complaints later.</p>
+      </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <h3>Close and Confirm Next Steps</h3>
+        <h4>Confirm Readiness</h4>
+        <div class="quote">"Does everything we've discussed today feel clear, and are you comfortable with our approach?"</div>
+        <div class="quote">"Are you ready for us to officially commence the active search for your property?"</div>
+        <h4>Set Next Actions</h4>
+        <ul>
+          <li><span class="bold-term">Our actions:</span> Finalise the Buyer's Brief, circulate internally, and start actively reaching out to the agent network. Confirm when the first update will be sent (give a specific day or date).</li>
+          <li><span class="bold-term">Client actions:</span> Remain responsive to communications and notify us if any preferences change.</li>
+        </ul>
+        <h4>Positive Close</h4>
+        <div class="quote">"We're excited to partner with you on this journey. We'll be in touch very soon!"</div>
+      </div>
+    </div>
+
+    <!-- Step 8 -->
+    <div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <h3>Document in WayHub and Trello</h3>
+        <h4>WayHub</h4>
+        <ul>
+          <li>Immediately after the session, add a comprehensive note to the client's opportunity in WayHub.</li>
+          <li>Note must include: date and time of session, key discussion points (brief confirmed, communication expectations set, search strategy agreed), any specific client requests or clarifications, client's overall sentiment and readiness, and specific next actions for the team.</li>
+          <li>Update the opportunity's status to <strong>"Client Engaged"</strong> or <strong>"Property Search Commenced"</strong> (or the relevant stage).</li>
+        </ul>
+        <h4>Trello</h4>
+        <ul>
+          <li>Go to the client's Trello board and check off <strong>"Onboarding Completed"</strong> in the checklist.</li>
+          <li>Upload or link the finalised Buyer's Brief to the relevant Trello card and to the client's Google Drive folder.</li>
+          <li>Update the client info card with any final adjustments from the session.</li>
+          <li>In the <strong>"Communication Schedule with the Client"</strong> card, add a note about the onboarding session and the agreed-upon communication frequency.</li>
+        </ul>
+        <div class="tip">Complete WayHub and Trello documentation the same day as the session - not the next morning. Details are forgotten quickly and a late note is less accurate.</div>
+      </div>
+    </div>
+
+    <!-- Checklist -->
+    <h2>Quick Reference Checklist</h2>
+    <p>Use this before and after every onboarding session.</p>
+    <ul class="checklist">
+      <li><div class="check-box"></div> Review Client Agreement, Fact Finder, and pre-qualification notes before the session</li>
+      <li><div class="check-box"></div> Draft Buyer's Brief ready for review</li>
+      <li><div class="check-box"></div> Client Google Drive folder and Trello board open</li>
+      <li><div class="check-box"></div> Zoom link confirmed (if virtual)</li>
+      <li><div class="check-box"></div> Warm welcome and agenda confirmed with client</li>
+      <li><div class="check-box"></div> Buyer's Brief reviewed and finalised with client</li>
+      <li><div class="check-box"></div> Communication channel, frequency, and response times agreed</li>
+      <li><div class="check-box"></div> Search strategy and process explained to client</li>
+      <li><div class="check-box"></div> Client questions answered</li>
+      <li><div class="check-box"></div> Next steps confirmed (our actions and client actions, with dates)</li>
+      <li><div class="check-box"></div> WayHub note added and lead status updated</li>
+      <li><div class="check-box"></div> Trello "Onboarding Completed" checked off</li>
+      <li><div class="check-box"></div> Finalised Buyer's Brief uploaded to Google Drive and Trello</li>
+    </ul>
+
+  </div>
+
+  <div class="footer">
+    <span>Timar Buyers Agency - Internal SOP</span>
+    <span>During Onboarding Session v1.0 - May 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
