@@ -396,6 +396,7 @@
   /* ── GROUP COLORS ────────────────────────────────────────── */
   .group-client-onboarding { background: #E8F5E9; color: #2E7D32; }
   .group-contracts-settlement { background: #E3F2FD; color: #1565C0; }
+  .group-sales { background: #E0F7FA; color: #00695C; }
   .group-market-research { background: #FFF3E0; color: #E65100; }
   .group-business-development { background: #E8EAF6; color: #283593; }
   .group-operations { background: #F3E5F5; color: #6A1B9A; }
@@ -431,7 +432,10 @@
     <div class="nav-divider"></div>
     <span class="nav-title">SOP Library</span>
   </div>
-  <span class="nav-badge">Internal Use Only</span>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <a href="training.html" style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.7)'">Training</a>
+    <span class="nav-badge">Internal Use Only</span>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -457,19 +461,20 @@
   <!-- Filter tabs -->
   <div class="filter-bar">
     <span class="filter-label">Filter:</span>
-    <button class="filter-tab active" data-group="all">All <span class="count" id="count-all">6</span></button>
+    <button class="filter-tab active" data-group="all">All <span class="count" id="count-all">13</span></button>
+    <button class="filter-tab" data-group="Sales">Sales <span class="count" id="count-sales">5</span></button>
     <button class="filter-tab" data-group="Client Onboarding">Client Onboarding <span class="count" id="count-client-onboarding">1</span></button>
-    <button class="filter-tab" data-group="Contracts &amp; Settlement">Contracts &amp; Settlement <span class="count" id="count-contracts-settlement">1</span></button>
-    <button class="filter-tab" data-group="Business Development">Business Development <span class="count" id="count-business-development">1</span></button>
+    <button class="filter-tab" data-group="Contracts &amp; Settlement">Contracts &amp; Settlement <span class="count" id="count-contracts-settlement">2</span></button>
+    <button class="filter-tab" data-group="Business Development">Business Development <span class="count" id="count-business-development">2</span></button>
     <button class="filter-tab" data-group="Market Research">Market Research <span class="count" id="count-market-research">1</span></button>
-    <button class="filter-tab" data-group="Marketing">Marketing <span class="count" id="count-marketing">2</span></button>
+    <button class="filter-tab" data-group="Marketing">Marketing <span class="count" id="count-marketing">3</span></button>
   </div>
 
   <!-- Stats row -->
   <div class="stats-row">
-    <div class="stat"><strong id="total-count">4</strong> SOPs total</div>
-    <div class="stat"><strong>4</strong> categories</div>
-    <div class="stat">Last updated <strong>26 May 2026</strong></div>
+    <div class="stat"><strong id="total-count">13</strong> SOPs total</div>
+    <div class="stat"><strong>6</strong> categories</div>
+    <div class="stat">Last updated <strong>31 May 2026</strong></div>
     <div class="results-label" id="results-label"></div>
   </div>
 
@@ -495,7 +500,7 @@
 <script>
 // ── SOP DATA ──────────────────────────────────────────────────────────────────
 // To add a new SOP, copy one of the objects below and fill in the details.
-// group options: 'Client Onboarding' | 'Contracts & Settlement' | 'Market Research' | 'Operations' | 'Marketing'
+// group options: 'Client Onboarding' | 'Contracts & Settlement' | 'Sales' | 'Market Research' | 'Operations' | 'Marketing' | 'Business Development'
 const SOPS = [
   {
     id: 'during-onboarding-session',
@@ -546,6 +551,90 @@ const SOPS = [
     tags: ['stocks', 'yahoo finance', 'land cycle', 'REIT', 'market research', 'monthly', 'CHC', 'NSR', 'AEWU', 'property stocks'],
   },
   {
+    id: 'lead-capture-initial-logging',
+    title: 'Lead Capture and Initial Logging',
+    group: 'Sales',
+    description: 'How to capture, log, and initially categorise a new inbound lead in WayHub. Covers Facebook leads, referrals, and organic enquiries - ensuring nothing falls through the cracks and every lead is actioned within the first hour.',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-lead-capture-initial-logging.html',
+    docx: null,
+    loom: 'https://www.loom.com/share/9d93da7a9c684fb5b0370ea1d809d3c9',
+    tags: ['lead', 'capture', 'logging', 'wayhub', 'CRM', 'facebook', 'inbound', 'initial contact', 'first hour'],
+  },
+  {
+    id: 'lead-prequalification',
+    title: 'Lead Prequalification Process',
+    group: 'Sales',
+    description: 'Step-by-step process for qualifying a new lead before booking a strategy session. Determines whether the lead is investor or owner-occupier, has genuine intent and budget, and is ready to engage - filtering out poor-fit enquiries early.',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-lead-prequalification.html',
+    docx: null,
+    loom: null,
+    tags: ['lead', 'prequalification', 'qualify', 'investor', 'owner occupier', 'budget', 'intent', 'filter', 'sales'],
+  },
+  {
+    id: 'strategy-session-setup',
+    title: 'Strategy Session Setup',
+    group: 'Sales',
+    description: 'Everything to do before a strategy session: confirming the booking, reviewing the fact finder, preparing suburb data, and setting up the call. Ensures every session starts from a position of knowledge, not scrambling.',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-strategy-session-setup.html',
+    docx: null,
+    loom: null,
+    tags: ['strategy session', 'setup', 'preparation', 'fact finder', 'wayhub', 'booking', 'pre-call'],
+  },
+  {
+    id: 'conducting-strategy-session',
+    title: 'Conducting a Strategy Session',
+    group: 'Sales',
+    description: 'How to run a strategy session from start to finish. Covers framing the call, reviewing the fact finder, aligning on a buying strategy, explaining how Timar works, and determining whether to move to a formal engagement.',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-conducting-strategy-session.html',
+    docx: null,
+    loom: null,
+    tags: ['strategy session', 'sales call', 'fact finder', 'engagement', 'buying strategy', 'qualification', 'close'],
+  },
+  {
+    id: 'buyer-agency-agreement',
+    title: 'Creating the Buyer Agency Agreement',
+    group: 'Contracts & Settlement',
+    description: 'How to select the correct agreement template (full service or express), populate the client details in DocuSign, update fee fields, and send for signature. Covers both investor and owner-occupier agreement types.',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-buyer-agency-agreement.html',
+    docx: null,
+    loom: null,
+    tags: ['agreement', 'contract', 'DocuSign', 'buyer agency', 'fee', 'signature', 'investor', 'owner occupier'],
+  },
+  {
+    id: 'hunting-vs-farming',
+    title: 'Hunting vs Farming Strategies',
+    group: 'Business Development',
+    description: 'Weekly routine for generating and converting leads through two complementary strategies: Hunting (active outreach to brokers, agents, Facebook leads) and Farming (nurturing existing pipeline, past clients, referral relationships).',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-hunting-vs-farming.html',
+    docx: null,
+    loom: null,
+    tags: ['hunting', 'farming', 'lead generation', 'outreach', 'nurture', 'pipeline', 'weekly routine', 'referral', 'broker', 'agent'],
+  },
+  {
+    id: 'meta-lead-communications',
+    title: 'Meta Lead Communications',
+    group: 'Marketing',
+    description: 'The automated 20-step investor lead nurture sequence triggered when a new lead submits the Investor Landing Page form via WayHub. Documents what automation sends, when, what the team must do manually, and how to use internal notifications to personalise follow-up calls.',
+    version: '1.0',
+    date: 'May 2026',
+    html: 'sop-meta-lead-communications.html',
+    docx: null,
+    loom: null,
+    tags: ['meta', 'facebook', 'lead', 'automation', 'wayhub', 'GHL', 'nurture', 'sequence', 'investor', 'SMS', 'email', 'follow up'],
+  },
+  {
     id: 'suburb-content-memos',
     title: 'Suburb Content Memos (Content Gain)',
     group: 'Marketing',
@@ -575,6 +664,7 @@ const SOPS = [
 const GROUP_COLORS = {
   'Client Onboarding':       'group-client-onboarding',
   'Contracts & Settlement':  'group-contracts-settlement',
+  'Sales':                   'group-sales',
   'Market Research':         'group-market-research',
   'Business Development':    'group-business-development',
   'Operations':              'group-operations',
